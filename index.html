@@ -31,6 +31,7 @@
   *{box-sizing:border-box}
   html{scroll-behavior:smooth}
   body{
+    overflow-x:hidden;
     margin:0;background:var(--paper);color:var(--ink);
     font-family:var(--sans);font-weight:300;font-size:17px;line-height:1.72;
     -webkit-font-smoothing:antialiased;
@@ -58,7 +59,7 @@
     font-family:var(--mono);font-size:.74rem;letter-spacing:.05em;color:var(--ink-3);
     display:flex;flex-wrap:wrap;gap:7px 22px;margin:0;padding:0;list-style:none;
   }
-  .meta a{border:0;color:var(--ink-2)}
+  .meta a{border:0;color:var(--ink-2);overflow-wrap:anywhere}
   .meta a:hover{color:var(--navy)}
   .meta .avail{color:var(--accent)}
 
@@ -73,12 +74,20 @@
     font-family:var(--mono);font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3);
   }
   .atlas-bar b{color:var(--navy);font-weight:500}
-  svg.map{display:block;width:100%;height:auto}
+  svg.map{display:block;width:100%;height:auto;cursor:url("data:image/svg%2Bxml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Cg fill='%2314523F' stroke='%23FFFFFF' stroke-width='1' stroke-linejoin='round'%3E%3Cpath d='M2 19h28l-4 7H6z'/%3E%3Cpath d='M6 12h20v7H6z'/%3E%3Cpath d='M9 8h6v4H9z'/%3E%3Cpath d='M20 6h4v6h-4z'/%3E%3C/g%3E%3C/svg%3E") 16 20, crosshair}
+  .pin{cursor:url("data:image/svg%2Bxml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Cg fill='%2314523F' stroke='%23FFFFFF' stroke-width='1' stroke-linejoin='round'%3E%3Cpath d='M2 19h28l-4 7H6z'/%3E%3Cpath d='M6 12h20v7H6z'/%3E%3Cpath d='M9 8h6v4H9z'/%3E%3Cpath d='M20 6h4v6h-4z'/%3E%3C/g%3E%3C/svg%3E") 16 20, pointer}
   .dot{fill:var(--dot)}
   .arc{fill:none;stroke:var(--navy);stroke-width:1;opacity:.26;stroke-dasharray:2.5 5}
   .arc.lit{opacity:.9;stroke-dasharray:none;stroke-width:1.3}
   .pin{cursor:pointer}
   .pin-hit{fill:transparent}
+  .pin-pulse{fill:none;stroke:var(--navy);stroke-width:1.3;animation:portPulse 4.2s ease-out infinite}
+  .pin.hub .pin-pulse{stroke:var(--accent)}
+  @keyframes portPulse{
+    0%{r:7;opacity:.55}
+    65%{r:30;opacity:0}
+    100%{r:30;opacity:0}
+  }
   .pin-halo{fill:var(--paper-2)}
   .pin-core{fill:var(--navy);transition:r .18s ease}
   .pin-ring{fill:none;stroke:var(--navy);stroke-width:1;opacity:.4}
@@ -190,6 +199,21 @@
     .rost-n{font-size:1.04rem}
   }
 
+  /* ---------- jump back ---------- */
+  .jump{
+    position:fixed;right:22px;bottom:22px;z-index:50;
+    display:inline-flex;align-items:center;gap:8px;
+    font-family:var(--mono);font-size:.68rem;letter-spacing:.11em;text-transform:uppercase;
+    padding:12px 16px;border-radius:99px;border:1px solid var(--rule);
+    background:var(--paper);color:var(--ink-2);cursor:pointer;
+    box-shadow:0 2px 14px rgba(15,26,34,.10);
+    opacity:0;visibility:hidden;transform:translateY(8px);
+    transition:opacity .25s ease,transform .25s ease,visibility .25s;
+  }
+  .jump.show{opacity:1;visibility:visible;transform:none}
+  .jump:hover{color:var(--navy);border-color:var(--navy)}
+  .jump svg{width:11px;height:11px;fill:currentColor}
+
   /* ---------- contact ---------- */
   .end{margin:96px 0 0;padding:56px 0 30px;border-top:1px solid var(--rule)}
   .end h2{font-family:var(--display);font-weight:700;letter-spacing:-.03em;font-size:clamp(1.8rem,4.2vw,2.9rem);margin:0 0 18px;color:var(--ink);max-width:20ch;line-height:1.12}
@@ -232,6 +256,8 @@
     .pin:hover .pin-core,.pin:focus-visible .pin-core,.pin.on .pin-core{r:13}
     .pin-label{font-size:34px;letter-spacing:.05em}
     .dot{r:3}
+    @keyframes portPulse{0%{r:11;opacity:.5}65%{r:44;opacity:0}100%{r:44;opacity:0}}
+    .pin-pulse{stroke-width:2.4}
     .arc{stroke-width:2;stroke-dasharray:5 9}
 
     .atlas-bar,.atlas-read{padding:11px 14px;font-size:.66rem;line-height:1.7}
@@ -252,6 +278,7 @@
     .case p,.case li{max-width:none}
     .plate{max-width:100%}
 
+    .jump{right:14px;bottom:14px;padding:13px 15px;font-size:.64rem}
     .end{margin-top:64px;padding:40px 0 24px}
     .btns{gap:9px}
     .btn{flex:1 1 100%;text-align:center;padding:15px 18px}
@@ -277,9 +304,9 @@
     <p class="lede">Award-winning integrated marketing, communications and go-to-market strategy across international markets. I turn insight-led planning into work that moves commercial numbers, for consumer giants and for the companies moving cargo across borders.</p>
     <ul class="meta">
       <li><a href="mailto:rae-annerichardson@hotmail.com">rae-annerichardson@hotmail.com</a></li>
-      <li>+1 868 473 4629</li>
-      <li>+44 7592 987763 · WhatsApp</li>
-      <li><a href="https://www.linkedin.com/in/rae-annerichardson/">LinkedIn</a></li>
+      <li><a href="tel:+18684734629">+1 868 473 4629</a></li>
+      <li><a href="https://wa.me/447592987763" target="_blank" rel="noopener">+44 7592 987763 · WhatsApp</a></li>
+      <li><a href="https://www.linkedin.com/in/rae-annerichardson/" target="_blank" rel="noopener">LinkedIn</a></li>
       <li class="avail">Relocating to the UK</li>
     </ul>
   </header>
@@ -289,7 +316,7 @@
       <span>Selected work, by port</span>
       <span><b id="count">6</b> ports · <b id="ccount">9</b> campaigns · base Port of Spain</span>
     </div>
-    <svg class="map" id="map" viewBox="0 0 1000 412" role="img" aria-label="World map showing seven campaign locations">
+    <svg class="map" id="map" viewBox="0 0 1000 500" role="img" aria-label="World map showing seven campaign locations">
       <g id="land"></g><g id="arcs"></g><g id="pins"></g>
     </svg>
     <div class="atlas-read">
@@ -370,6 +397,10 @@
     </div>
   </section>
 
+  <button class="jump" id="jump" type="button" aria-label="Back to the port index">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4l8 9h-5v7H9v-7H4z"/></svg>All ports
+  </button>
+
   <p class="foot">Rae-Anne Richardson · Senior Marketing Strategist · Port of Spain → United Kingdom</p>
 </div>
 
@@ -381,46 +412,35 @@
    Landscape images work best (roughly 4:3 or 3:2).
    ============================================================ */
 
-const GRID = ["000000000000000000000000000000000000000000000000000000000000000000000000",
-"000000000000000000000000000000000000000000000000000000000000000000000000",
-"000000000000000000000000011111111000000111000000000000011110000000000000",
-"000000000001111111111110111111111100000111000000011111111111111000000000",
-"000011111111111111111111011111111100001111111111111111111111111111111111",
-"001111111111111111111111101111111111011111111111111111111111111111111111",
-"011111111111111111111111110111110110111111111111111111111111111111111111",
-"011111111111111111111111111000001111111111111111111111111111111111111111",
-"000000111111111111111111111100001111111111111111111111111111111111111111",
-"000000011111111111111111111100000111111111111111111111111111111111111110",
-"000000011111111111111111111100000111111111111111111111111111111111111000",
-"000000011111111111111111111100000111111111111111111111111111111111111000",
-"000000001111111111111111111100000011111111111111111111111111111111110000",
-"000000000111111111111111111000000111111111111111111111111111111110000000",
-"000000000011111111111111110000001111111111111111111111111111111100000000",
-"000000000001111111111111111110001111111111111111111111111111111000000000",
-"000000000000001111111111111111001111111111111110001111111111111000000000",
-"000000000000000000011111111111101111111111111111100111111111111000000000",
-"000000000000000000000111111111111111111111111111100000011111111110000000",
-"000000000000000000000111111111111111111111111110000000011111111111100000",
-"000000000000000000000111111111111111111111111110000000011111111111111100",
-"000000000000000000000011111111111111111111111110000000000111111111111110",
-"000000000000000000000001111111111111111111111111000000000000111111111111",
-"000000000000000000000001111111111111111111101111000000000011111111111111",
-"000000000000000000000000111111111111111111100000000000000011111111111111",
-"000000000000000000000000111111111011111111000000000000000011111111111110",
-"000000000000000000000000011111110000000000000000000000000000111111111111",
-"000000000000000000000000011111100000000000000000000000000000000011000111",
-"000000000000000000000000001111100000000000000000000000000000000000000110",
-"000000000000000000000000001111000000000000000000000000000000000000000000",
-"000000000000000000000000000000000000000000000000000000000000000000000000",
-"000000000000000000000000000000000000000000000000000000000000000000000000",
-"000000000000000000000000000000000000000000000000000000000000000000000000",
-"000000000000000000000000000000000000000000000000000000000000000000000000",
-"000000000000000000000000000000000000000000000000000000000000000000000000",
-"000000000000000000000000000000000000000000000000000000000000000000000000"];
+const GRID = ["111110000001111111000000000000000000000111001111",
+"111110000001111111100000000000000000001111001111",
+"111100000001111111111000000000000000001111101111",
+"111111111101111111110000000000000000001111111111",
+"111111111111111110111000000000000000001111111111",
+"111111111111111111111000000000000000000001111111",
+"111111111111111111100000000000000000001111111111",
+"111111111111111000000000000000000000001111111111",
+"111111111111100000000000000000000000001111111111",
+"111111111111000000000000000000000000001111111111",
+"111111111110000000000000000000000000001111111111",
+"111111111110000000000000000000000000001111111111",
+"111110011100000000000000000000000000111111111111",
+"111100000110000000000000000000000000111111111111",
+"111100001111100000000000000000000001111111111111",
+"111111111111100000000000000000000001111111111111",
+"111111111011111000000000000000000001111111111111",
+"111111111000000111000000000000000001111111111111",
+"111111111000000001000000000000000001111111111111",
+"111111111000011111100000000000000000111111111111",
+"000000111111111111110000000000000000111111111111",
+"000000000011111111111000000000000000011111111111",
+"000000000011111111111110000000000000001111111111",
+"000000000011111111111110000000000000000000000111"];
 
-const W = 1000, H = 412;
-const x = lon => (lon + 180) / 360 * 1000;
-const y = lat => (90 - lat) / 180 * 500 - 15;
+/* Atlantic crop: lon -105..15, lat 0..60, at 8.333 units per degree */
+const W = 1000, H = 500, K = 8.3333;
+const x = lon => (lon + 105) * K;
+const y = lat => (60 - lat) * K;
 const fmt = (lat, lon) =>
   Math.abs(lat).toFixed(2) + "°" + (lat >= 0 ? "N" : "S") + " " +
   Math.abs(lon).toFixed(2) + "°" + (lon >= 0 ? "E" : "W");
@@ -532,11 +552,11 @@ const PORTS = [
 /* ---- land ---- */
 let d = "";
 for (let i = 0; i < GRID.length; i++) {
-  for (let j = 0; j < 72; j++) {
+  for (let j = 0; j < 48; j++) {
     if (GRID[i][j] === "1") {
-      const cx = (j / 72) * 1000 + 1000 / 144;
-      const cy = (i / 36) * 500 + 500 / 72 - 15;
-      if (cy > -5 && cy < H + 5) d += `<circle class="dot" cx="${cx.toFixed(1)}" cy="${cy.toFixed(1)}" r="2"/>`;
+      const cx = j * (1000 / 48) + (1000 / 96);
+      const cy = i * (500 / 24) + (500 / 48);
+      d += `<circle class="dot" cx="${cx.toFixed(1)}" cy="${cy.toFixed(1)}" r="3.4"/>`;
     }
   }
 }
@@ -556,9 +576,10 @@ document.getElementById("arcs").innerHTML = a;
 
 /* ---- pins ---- */
 let s = "";
-PORTS.filter(p => !p.sharesPin).forEach(p => {
+PORTS.filter(p => !p.sharesPin).forEach((p, i) => {
   const px = x(p.lon), py = y(p.lat);
-  s += `<g class="pin ${p.hub ? "hub" : ""}" id="pin-${p.id}" tabindex="0" role="button" aria-label="${p.title}, ${p.city}">
+  s += `<g class="pin ${p.hub ? "hub" : ""}" data-pin="${p.id}" tabindex="0" role="button" aria-label="${p.title}, ${p.city}">
+      <circle class="pin-pulse" cx="${px}" cy="${py}" r="7" style="animation-delay:${(i * 0.55).toFixed(2)}s"/>
       <circle class="pin-halo" cx="${px}" cy="${py}" r="7"/>
       <circle class="pin-ring" cx="${px}" cy="${py}" r="6.5"/>
       <circle class="pin-core" cx="${px}" cy="${py}" r="3.6"/>
@@ -567,6 +588,8 @@ PORTS.filter(p => !p.sharesPin).forEach(p => {
     </g>`;
 });
 document.getElementById("pins").innerHTML = s;
+
+
 
 /* ---- case studies ---- */
 document.getElementById("cases").innerHTML = PORTS.map(p => `
@@ -597,8 +620,7 @@ function lightUp(p, on) {
   const key = p.sharesPin || p.id;
   const arc = document.getElementById("arc-" + key);
   if (arc) arc.classList.toggle("lit", on);
-  const pin = document.getElementById("pin-" + key);
-  if (pin) pin.classList.toggle("on", on);
+  document.querySelectorAll(`[data-pin="${key}"]`).forEach(el => el.classList.toggle("on", on));
   const row = document.getElementById("ix-" + p.id);
   if (row) row.classList.toggle("on", on);
   if (on) {
@@ -616,15 +638,15 @@ function openCase(p) {
   setTimeout(() => el.classList.remove("flash"), 1700);
 }
 PORTS.forEach(p => {
-  const g = document.getElementById("pin-" + p.id);
-  if (!g) return;
-  g.addEventListener("mouseenter", () => lightUp(p, true));
-  g.addEventListener("mouseleave", () => lightUp(p, false));
-  g.addEventListener("focus", () => lightUp(p, true));
-  g.addEventListener("blur", () => lightUp(p, false));
-  g.addEventListener("click", () => openCase(p));
-  g.addEventListener("keydown", e => {
-    if (e.key === "Enter" || e.key === " ") { e.preventDefault(); openCase(p); }
+  document.querySelectorAll(`[data-pin="${p.id}"]`).forEach(g => {
+    g.addEventListener("mouseenter", () => lightUp(p, true));
+    g.addEventListener("mouseleave", () => lightUp(p, false));
+    g.addEventListener("focus", () => lightUp(p, true));
+    g.addEventListener("blur", () => lightUp(p, false));
+    g.addEventListener("click", () => openCase(p));
+    g.addEventListener("keydown", e => {
+      if (e.key === "Enter" || e.key === " ") { e.preventDefault(); openCase(p); }
+    });
   });
 });
 /* ---- port index ---- */
@@ -642,6 +664,17 @@ PORTS.forEach(p => {
   row.addEventListener("focus", () => lightUp(p, true));
   row.addEventListener("blur", () => lightUp(p, false));
   row.addEventListener("click", () => openCase(p));
+});
+
+/* ---- jump back to the index ---- */
+const jump = document.getElementById("jump");
+const atlas = document.querySelector(".atlas");
+addEventListener("scroll", () => {
+  const nearBottom = scrollY + innerHeight > document.body.scrollHeight - 260;
+  jump.classList.toggle("show", scrollY > 700 && !nearBottom);
+}, { passive: true });
+jump.addEventListener("click", () => {
+  atlas.scrollIntoView({ behavior: reduce ? "auto" : "smooth", block: "start" });
 });
 
 document.getElementById("count").textContent = new Set(PORTS.map(p => p.city)).size;
