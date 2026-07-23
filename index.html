@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rae-Anne Richardson — Senior Marketing Strategist</title>
+<meta name="description" content="Award-winning senior marketing strategist. Go-to-market, brand and communications for companies that move things across borders.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#FCFCFC;
+    --panel:#F2F5F3;
+    --sand:#E6EAE8;
+    --dot:#C9D3CF;
+    --ink:#14181B;
+    --ink-2:#49524F;
+    --ink-3:#7B8582;
+    --rule:#E0E5E2;
+    --navy:#14523F;
+    --navy-deep:#0C3A2C;
+    --brass:#2E7D63;
+    --paper-2:#F2F5F3;
+    --accent:#2E7D63;
+    --display:'Space Grotesk','Helvetica Neue',Arial,sans-serif;
+    --serif:'Space Grotesk','Helvetica Neue',Arial,sans-serif;
+    --sans:'Inter',system-ui,-apple-system,'Segoe UI',sans-serif;
+    --mono:'IBM Plex Mono',ui-monospace,'Courier New',monospace;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0;background:var(--paper);color:var(--ink);
+    font-family:var(--sans);font-weight:300;font-size:17px;line-height:1.72;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:1080px;margin:0 auto;padding:0 30px}
+  a{color:var(--navy);text-decoration:none;border-bottom:1px solid rgba(20,82,63,.32)}
+  a:hover{border-color:var(--navy)}
+  :focus-visible{outline:2px solid var(--navy);outline-offset:3px;border-radius:2px}
+  .eyebrow{
+    font-family:var(--mono);font-size:.7rem;letter-spacing:.19em;text-transform:uppercase;
+    color:var(--accent);margin:0 0 14px;
+  }
+
+  /* ---------- masthead ---------- */
+  .mast{padding:64px 0 40px}
+  .mast h1{
+    font-family:var(--display);font-weight:700;letter-spacing:-.035em;
+    font-size:clamp(2.6rem,6.6vw,4.6rem);line-height:1.02;margin:0 0 20px;color:var(--ink);
+  }
+  .mast .lede{
+    font-family:var(--sans);font-weight:300;font-size:clamp(1.12rem,2.3vw,1.42rem);
+    line-height:1.55;max-width:36ch;margin:0 0 30px;color:var(--ink-2);
+  }
+  .meta{
+    font-family:var(--mono);font-size:.74rem;letter-spacing:.05em;color:var(--ink-3);
+    display:flex;flex-wrap:wrap;gap:7px 22px;margin:0;padding:0;list-style:none;
+  }
+  .meta a{border:0;color:var(--ink-2)}
+  .meta a:hover{color:var(--navy)}
+  .meta .avail{color:var(--accent)}
+
+  /* ---------- map ---------- */
+  .atlas{
+    margin:16px 0 0;background:var(--paper-2);
+    border:1px solid var(--rule);border-radius:5px;overflow:hidden;
+  }
+  .atlas-bar{
+    display:flex;justify-content:space-between;align-items:baseline;gap:16px;flex-wrap:wrap;
+    padding:13px 20px;border-bottom:1px solid var(--rule);
+    font-family:var(--mono);font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3);
+  }
+  .atlas-bar b{color:var(--navy);font-weight:500}
+  svg.map{display:block;width:100%;height:auto}
+  .dot{fill:var(--dot)}
+  .arc{fill:none;stroke:var(--navy);stroke-width:1;opacity:.26;stroke-dasharray:2.5 5}
+  .arc.lit{opacity:.9;stroke-dasharray:none;stroke-width:1.3}
+  .pin{cursor:pointer}
+  .pin-hit{fill:transparent}
+  .pin-halo{fill:var(--paper-2)}
+  .pin-core{fill:var(--navy);transition:r .18s ease}
+  .pin-ring{fill:none;stroke:var(--navy);stroke-width:1;opacity:.4}
+  .pin.hub .pin-core{fill:var(--accent)}
+  .pin.hub .pin-ring{stroke:var(--accent)}
+  .pin:hover .pin-core,.pin:focus-visible .pin-core,.pin.on .pin-core{r:5.6}
+  .pin-label{
+    font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;fill:var(--ink-2);
+    opacity:0;transition:opacity .2s ease;pointer-events:none;
+  }
+  .pin:hover .pin-label,.pin:focus-visible .pin-label,.pin.on .pin-label{opacity:1}
+  .atlas-read{
+    display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
+    padding:14px 20px;border-top:1px solid var(--rule);min-height:48px;
+    font-family:var(--mono);font-size:.72rem;letter-spacing:.04em;color:var(--ink-3);
+  }
+  .atlas-read b{color:var(--ink);font-weight:500}
+  .index{
+    display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:0 30px;border-top:1px solid var(--rule);padding:6px 20px 14px;
+  }
+  .ix{
+    display:flex;gap:12px;align-items:baseline;width:100%;text-align:left;cursor:pointer;
+    background:none;border:0;border-bottom:1px solid var(--rule);padding:11px 2px;
+    font-family:var(--mono);font-size:.7rem;letter-spacing:.04em;color:var(--ink-2);transition:color .15s;
+  }
+  .ix:last-child{border-bottom:0}
+  .ix:hover,.ix.on{color:var(--navy)}
+  .ix .ix-port{flex:0 0 96px;text-transform:uppercase;letter-spacing:.13em;color:var(--ink-3)}
+  .ix:hover .ix-port,.ix.on .ix-port{color:var(--navy)}
+  .ix .ix-name{flex:1;font-family:var(--sans);font-size:.84rem;letter-spacing:0}
+  .ix .ix-yr{flex:0 0 auto;color:var(--ink-3);font-size:.66rem}
+  .hint{font-family:var(--mono);font-size:.66rem;letter-spacing:.13em;text-transform:uppercase;color:var(--ink-3);margin:12px 0 0}
+
+  /* ---------- figures ---------- */
+  .figs{
+    display:grid;grid-template-columns:repeat(auto-fit,minmax(158px,1fr));
+    gap:34px 26px;margin:74px 0 0;padding:36px 0;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);
+  }
+  .fig .n{font-family:var(--display);font-weight:700;letter-spacing:-.03em;font-size:2.1rem;color:var(--ink);line-height:1;display:block;letter-spacing:-.01em}
+  .fig .l{font-family:var(--mono);font-size:.66rem;letter-spacing:.11em;text-transform:uppercase;color:var(--ink-3);margin-top:11px;display:block;line-height:1.65}
+
+  /* ---------- sections ---------- */
+  .sec{padding:88px 0 0}
+  .sec > h2{
+    font-family:var(--mono);font-size:.7rem;letter-spacing:.19em;text-transform:uppercase;
+    color:var(--accent);margin:0 0 6px;font-weight:500;
+  }
+  .sec > .sub{font-family:var(--display);font-size:1.45rem;font-weight:500;letter-spacing:-.02em;margin:0 0 40px;color:var(--ink);letter-spacing:-.01em}
+
+  /* ---------- case studies ---------- */
+  .case{
+    display:grid;grid-template-columns:1fr 340px;gap:52px;align-items:start;
+    padding:44px 0;border-top:1px solid var(--rule);scroll-margin-top:24px;transition:background .6s ease;
+  }
+  .case.flash{background:rgba(20,82,63,.05)}
+  .case-loc{
+    font-family:var(--mono);font-size:.68rem;letter-spacing:.1em;color:var(--ink-3);
+    display:flex;flex-wrap:wrap;gap:6px 16px;margin:0 0 16px;
+  }
+  .case-loc .city{color:var(--accent);text-transform:uppercase;letter-spacing:.16em}
+  .case h3{font-family:var(--display);font-weight:600;font-size:1.85rem;line-height:1.16;margin:0 0 4px;color:var(--ink);letter-spacing:-.015em}
+  .case .kick{font-family:var(--mono);font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);margin:0 0 18px}
+  .case p{margin:0 0 14px;max-width:60ch;color:var(--ink-2)}
+  .case p strong{color:var(--ink);font-weight:500}
+  .case ul{margin:18px 0 0;padding:0;list-style:none;max-width:60ch}
+  .case li{padding-left:20px;position:relative;margin-bottom:9px;font-size:.93rem;color:var(--ink-2)}
+  .case li::before{content:"";position:absolute;left:2px;top:.72em;width:9px;height:1px;background:var(--accent)}
+
+  .plate{position:sticky;top:24px}
+  .plate img{width:100%;height:auto;display:block;border-radius:4px;border:1px solid var(--rule)}
+  .plate .empty{
+    aspect-ratio:4/3;border:1px dashed var(--rule);border-radius:4px;background:var(--paper-2);
+    display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;text-align:center;padding:20px;
+  }
+  .plate .empty span{font-family:var(--mono);font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3);line-height:1.7}
+  .plate .cap{font-family:var(--mono);font-size:.63rem;letter-spacing:.09em;color:var(--ink-3);margin:11px 0 0;line-height:1.65}
+
+  /* ---------- background ---------- */
+  .cols{display:grid;grid-template-columns:1.35fr 1fr;gap:60px;padding-top:8px}
+  .cols p{color:var(--ink-2);max-width:58ch}
+  .cols h4{font-family:var(--mono);font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin:0 0 14px;font-weight:500}
+  .list{margin:0;padding:0;list-style:none;font-size:.92rem;color:var(--ink-2)}
+  .list li{padding:9px 0;border-bottom:1px solid var(--rule)}
+  .list li:last-child{border-bottom:0}
+  .tags{display:flex;flex-wrap:wrap;gap:7px;margin-top:22px}
+  .tag{font-family:var(--mono);font-size:.65rem;letter-spacing:.07em;color:var(--ink-2);border:1px solid var(--rule);padding:6px 10px;border-radius:99px;background:var(--paper-2)}
+
+  /* ---------- roster ---------- */
+  .roster{border-top:1px solid var(--rule);margin:0}
+  .rost{
+    display:grid;grid-template-columns:186px 1fr;gap:28px;align-items:baseline;
+    padding:22px 0;border-bottom:1px solid var(--rule);
+  }
+  .rost-l{
+    font-family:var(--mono);font-size:.65rem;letter-spacing:.15em;text-transform:uppercase;
+    color:var(--brass);line-height:1.7;
+  }
+  .rost-n{font-family:var(--serif);font-size:1.14rem;font-weight:400;color:var(--ink);line-height:1.62}
+  .rost-n em{font-style:normal;color:var(--ink-3)}
+  .roster-note{font-family:var(--mono);font-size:.64rem;letter-spacing:.08em;color:var(--ink-3);margin:16px 0 0;line-height:1.7}
+  .sec > h3.subhead{
+    font-family:var(--mono);font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--brass);margin:46px 0 18px;font-weight:500;
+  }
+  @media (max-width:760px){
+    .rost{grid-template-columns:1fr;gap:8px;padding:18px 0}
+    .rost-n{font-size:1.04rem}
+  }
+
+  /* ---------- contact ---------- */
+  .end{margin:96px 0 0;padding:56px 0 30px;border-top:1px solid var(--rule)}
+  .end h2{font-family:var(--display);font-weight:700;letter-spacing:-.03em;font-size:clamp(1.8rem,4.2vw,2.9rem);margin:0 0 18px;color:var(--ink);max-width:20ch;line-height:1.12}
+  .end p{max-width:54ch;margin:0 0 28px;color:var(--ink-2)}
+  .btns{display:flex;flex-wrap:wrap;gap:11px}
+  .btn{
+    font-family:var(--mono);font-size:.72rem;letter-spacing:.11em;text-transform:uppercase;
+    padding:14px 22px;border-radius:3px;transition:.18s;border:1px solid var(--navy);
+    background:var(--navy);color:var(--paper);
+  }
+  .btn:hover{background:var(--navy-deep);border-color:var(--navy-deep)}
+  .btn.wa{
+    background:transparent;color:var(--navy);border-color:var(--navy);
+    display:inline-flex;align-items:center;gap:9px;
+  }
+  .btn.wa svg{width:15px;height:15px;fill:currentColor;flex:none}
+  .btn.wa:hover{background:var(--navy);color:var(--paper);border-color:var(--navy)}
+  .btn.line{background:transparent;color:var(--ink-2);border-color:var(--rule)}
+  .btn.line:hover{background:var(--paper-2);color:var(--ink);border-color:var(--ink-3)}
+  .foot{font-family:var(--mono);font-size:.64rem;letter-spacing:.1em;color:var(--ink-3);padding:34px 0 48px}
+
+  @media (max-width:900px){
+    .case{grid-template-columns:1fr;gap:26px;padding:34px 0}
+    .plate{position:static;order:-1;max-width:440px}
+    .cols{grid-template-columns:1fr;gap:44px}
+    .mast{padding:44px 0 30px}
+    .sec{padding:64px 0 0}
+    .pin-label{font-size:14px}
+    body{font-size:16px}
+  }
+  @media (prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto}
+    *{transition:none!important;animation:none!important}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="mast">
+    <p class="eyebrow">Senior Marketing Strategist</p>
+    <h1>Rae-Anne Richardson</h1>
+    <p class="lede">Award-winning integrated marketing, communications and go-to-market strategy across international markets. I turn insight-led planning into work that moves commercial numbers — for consumer giants, and for the companies moving cargo across borders.</p>
+    <ul class="meta">
+      <li><a href="mailto:rae-annerichardson@hotmail.com">rae-annerichardson@hotmail.com</a></li>
+      <li>+1 868 473 4629</li>
+      <li>+44 7592 987763 · WhatsApp</li>
+      <li><a href="https://www.linkedin.com/in/rae-annerichardson/">LinkedIn</a></li>
+      <li class="avail">Relocating to the UK</li>
+    </ul>
+  </header>
+
+  <section class="atlas" aria-label="Map of selected work">
+    <div class="atlas-bar">
+      <span>Selected work, by port</span>
+      <span><b id="count">6</b> ports · <b id="ccount">7</b> campaigns · base Port of Spain</span>
+    </div>
+    <svg class="map" id="map" viewBox="0 0 1000 412" role="img" aria-label="World map showing seven campaign locations">
+      <g id="land"></g><g id="arcs"></g><g id="pins"></g>
+    </svg>
+    <div class="atlas-read">
+      <span id="r-left">Select a port to open the case study</span>
+      <span id="r-right"></span>
+    </div>
+    <div class="index" id="index"></div>
+  </section>
+  <p class="hint">Tap a marker, or scroll for the full case studies</p>
+
+  <div class="figs">
+    <div class="fig"><span class="n">US$9M</span><span class="l">First-year revenue<br>new product launch</span></div>
+    <div class="fig"><span class="n">US$300M</span><span class="l">Sales pipeline<br>supported</span></div>
+    <div class="fig"><span class="n">US$250K</span><span class="l">Annual media<br>investment governed</span></div>
+    <div class="fig"><span class="n">+97%</span><span class="l">Earned media growth<br>45 tier-one placements</span></div>
+    <div class="fig"><span class="n">10 years</span><span class="l">In marketing &amp; communications<br>since 2016</span></div>
+  </div>
+
+  <section class="sec" id="work">
+    <h2>Case studies</h2>
+    <p class="sub">Advertising, communications and product launches across six markets.</p>
+    <div id="cases"></div>
+  </section>
+
+  <section class="sec">
+    <h2>Background</h2>
+    <p class="sub">How I work.</p>
+    <div class="cols">
+      <div>
+        <p>I came up through advertising — copywriting, creative pods, brand campaigns for Diageo, Coca-Cola, Unilever and UNICEF — and then took that craft into energy and logistics, where the buyer is technical, the sales cycle is long, and the audience sits across a dozen jurisdictions. The combination is the point. A campaign has to do more than look good: it has to open a market, shorten a pipeline, or make a sales team faster.</p>
+        <p>In practice that means running integrated programmes end to end — go-to-market strategy, brand positioning, PR, performance marketing and sales enablement — with a measurement layer attached from the start. I currently lead a cross-functional team of five specialists across six international offices, govern a US$250K annual media budget, and write on AI and global trade for Forbes.</p>
+        <p>Roughly five years agency-side and five in-house, which means I can write the line and defend the media plan. Three advertising awards came from the creative work; US$9M in first-year revenue and a US$300M pipeline came from the commercial side. I don't think those are separate skills.</p>
+        <div class="tags">
+          <span class="tag">Go-to-market strategy</span><span class="tag">Brand positioning</span><span class="tag">Public relations</span><span class="tag">Media strategy</span><span class="tag">SEO / SEM / CRO</span><span class="tag">Paid media</span><span class="tag">Sales enablement</span><span class="tag">Marketing analytics</span><span class="tag">AI-driven marketing</span><span class="tag">Executive stakeholder management</span>
+        </div>
+      </div>
+      <div>
+        <h4>Recognition</h4>
+        <ul class="list">
+          <li>Silver ADDY, American Advertising Awards — 2026</li>
+          <li>Double Silver ADDY, American Advertising Awards — 2022</li>
+          <li>Trinidad &amp; Tobago Advertising Award — 2020</li>
+          <li>Forbes Communications Council — member</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="sec" id="clients">
+    <h2>Clients &amp; press</h2>
+    <p class="sub">Consumer brands, industrial operators, and the titles that ran the work.</p>
+    <h3 class="subhead">Selected clients</h3>
+    <div class="roster">
+      <div class="rost"><span class="rost-l">Consumer &amp; FMCG</span><span class="rost-n">Diageo · Coca-Cola · Unilever · Procter &amp; Gamble · Johnnie Walker · Adidas · Pandora</span></div>
+      <div class="rost"><span class="rost-l">Financial services</span><span class="rost-n">Republic Bank</span></div>
+      <div class="rost"><span class="rost-l">Public &amp; non-profit</span><span class="rost-n">UNICEF · Crime Stoppers · National Energy Corporation</span></div>
+      <div class="rost"><span class="rost-l">Energy &amp; industrial</span><span class="rost-n">Shell · ExxonMobil · Noble Corporation · National Gas Company</span></div>
+      <div class="rost"><span class="rost-l">Logistics &amp; maritime</span><span class="rost-n">Ramps Logistics · El Dorado Offshore · MATPAL Marine Institute</span></div>
+    </div>
+    <p class="roster-note">Consumer and non-profit work delivered agency-side at Caribbean Ideas Synapse and Corbin Communications; energy, logistics and maritime work delivered in-house at Ramps Logistics.</p>
+    <h3 class="subhead">Published in</h3>
+    <div class="roster">
+      <div class="rost"><span class="rost-l">Business &amp; national</span><span class="rost-n">Forbes · The Guardian · Yahoo</span></div>
+      <div class="rost"><span class="rost-l">Industrial &amp; trade</span><span class="rost-n">L'Usine Nouvelle · American Journal of Transportation · Project Cargo Journal · Air Cargo Magazine</span></div>
+      <div class="rost"><span class="rost-l">Energy</span><span class="rost-n">OilNOW · GY Energy Magazine</span></div>
+    </div>
+  </section>
+
+  <section class="end">
+    <h2>Open to senior marketing roles in the UK.</h2>
+    <p>I'm relocating and would need Skilled Worker sponsorship — happy to talk through timelines. If you're hiring for brand, communications or growth, I'd like to hear about it.</p>
+    <div class="btns">
+      <a class="btn" href="mailto:rae-annerichardson@hotmail.com">Email me</a>
+      <a class="btn wa" href="https://wa.me/447592987763" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2Zm0 18.15h-.01a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.2 8.2 0 0 1-1.26-4.38c0-4.54 3.7-8.23 8.25-8.23a8.23 8.23 0 0 1 0 16.47Zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.24-.64.8-.78.97-.15.16-.29.18-.54.06-.25-.13-1.05-.39-2-1.23-.74-.66-1.24-1.47-1.38-1.72-.15-.25-.02-.38.11-.5.11-.11.25-.29.37-.44.13-.15.17-.25.25-.42.09-.16.04-.31-.02-.43-.06-.13-.56-1.35-.77-1.84-.2-.49-.4-.42-.55-.43h-.47c-.16 0-.43.06-.65.31-.23.25-.86.84-.86 2.05s.88 2.38 1 2.54c.13.17 1.74 2.66 4.22 3.73.59.25 1.05.4 1.41.52.59.19 1.13.16 1.56.1.47-.07 1.47-.6 1.68-1.18.2-.58.2-1.08.14-1.18-.06-.11-.22-.17-.47-.29Z"/></svg>WhatsApp me</a>
+      <a class="btn line" href="https://www.linkedin.com/in/rae-annerichardson/" target="_blank" rel="noopener">LinkedIn</a>
+      <a class="btn line" href="CV.pdf" target="_blank" rel="noopener">Download CV</a>
+    </div>
+  </section>
+
+  <p class="foot">Rae-Anne Richardson · Senior Marketing Strategist · Port of Spain → United Kingdom</p>
+</div>
+
+<script>
+/* ============================================================
+   TO ADD YOUR OWN IMAGES
+   Put image files next to this HTML file, then set  img: "filename.jpg"
+   on the matching entry below. Leave img: "" to show a neutral placeholder.
+   Landscape images work best (roughly 4:3 or 3:2).
+   ============================================================ */
+
+const GRID = ["000000000000000000000000000000000000000000000000000000000000000000000000",
+"000000000000000000000000000000000000000000000000000000000000000000000000",
+"000000000000000000000000011111111000000111000000000000011110000000000000",
+"000000000001111111111110111111111100000111000000011111111111111000000000",
+"000011111111111111111111011111111100001111111111111111111111111111111111",
+"001111111111111111111111101111111111011111111111111111111111111111111111",
+"011111111111111111111111110111110110111111111111111111111111111111111111",
+"011111111111111111111111111000001111111111111111111111111111111111111111",
+"000000111111111111111111111100001111111111111111111111111111111111111111",
+"000000011111111111111111111100000111111111111111111111111111111111111110",
+"000000011111111111111111111100000111111111111111111111111111111111111000",
+"000000011111111111111111111100000111111111111111111111111111111111111000",
+"000000001111111111111111111100000011111111111111111111111111111111110000",
+"000000000111111111111111111000000111111111111111111111111111111110000000",
+"000000000011111111111111110000001111111111111111111111111111111100000000",
+"000000000001111111111111111110001111111111111111111111111111111000000000",
+"000000000000001111111111111111001111111111111110001111111111111000000000",
+"000000000000000000011111111111101111111111111111100111111111111000000000",
+"000000000000000000000111111111111111111111111111100000011111111110000000",
+"000000000000000000000111111111111111111111111110000000011111111111100000",
+"000000000000000000000111111111111111111111111110000000011111111111111100",
+"000000000000000000000011111111111111111111111110000000000111111111111110",
+"000000000000000000000001111111111111111111111111000000000000111111111111",
+"000000000000000000000001111111111111111111101111000000000011111111111111",
+"000000000000000000000000111111111111111111100000000000000011111111111111",
+"000000000000000000000000111111111011111111000000000000000011111111111110",
+"000000000000000000000000011111110000000000000000000000000000111111111111",
+"000000000000000000000000011111100000000000000000000000000000000011000111",
+"000000000000000000000000001111100000000000000000000000000000000000000110",
+"000000000000000000000000001111000000000000000000000000000000000000000000",
+"000000000000000000000000000000000000000000000000000000000000000000000000",
+"000000000000000000000000000000000000000000000000000000000000000000000000",
+"000000000000000000000000000000000000000000000000000000000000000000000000",
+"000000000000000000000000000000000000000000000000000000000000000000000000",
+"000000000000000000000000000000000000000000000000000000000000000000000000",
+"000000000000000000000000000000000000000000000000000000000000000000000000"];
+
+const W = 1000, H = 412;
+const x = lon => (lon + 180) / 360 * 1000;
+const y = lat => (90 - lat) / 180 * 500 - 15;
+const fmt = (lat, lon) =>
+  Math.abs(lat).toFixed(2) + "°" + (lat >= 0 ? "N" : "S") + " " +
+  Math.abs(lon).toFixed(2) + "°" + (lon >= 0 ? "E" : "W");
+
+const HUB = { lat: 10.65, lon: -61.51 };
+
+const PORTS = [
+  { id:"cubby", city:"Port of Spain", country:"Trinidad & Tobago", lat:10.65, lon:-61.51,
+    hub:true, dx:-12, anchor:"end",
+    year:"2025 – 2026", kick:"Silver ADDY · Specialty Advertising Campaign",
+    title:"CUBBY Cargo",
+    img:"cubby.jpg", cap:"Cubby, the campaign mascot for the Caribbean’s first AI-enabled freight tool.",
+    body:"CUBBY — short for Container Unit Booking Buddy — is the Caribbean's first AI-enabled freight tool, built in Trinidad and run through WhatsApp: quote, book and track a container from China, India, the US or Brazil in about three minutes. My job was to make a piece of regional logistics infrastructure feel like something a small importer would actually want to use. We built a purple octopus and gave the category a mascot it had never had.",
+    points:["Drove <strong>US$9M in first-year revenue</strong> through product campaigns across four markets",
+            "<strong>Silver ADDY, 2026</strong> — Ramps' first year entering, and the only non-agency winner that year",
+            "Conceived and executed entirely in-house: branding, concept, booth design, social and PR",
+            "Positioned an enterprise freight platform to SMEs, entrepreneurs and industrial importers",
+            "Proved an in-house team could compete with the region's top agencies"] },
+
+  { id:"otc", city:"Houston", country:"United States", lat:29.76, lon:-95.37,
+    dx:-12, anchor:"end",
+    year:"3 consecutive years", kick:"Offshore Technology Conference · NRG Park",
+    title:"Trinidad & Tobago National Pavilion",
+    img:"otc.jpg", cap:"The T&amp;T Energy Pavilion at OTC Houston, as covered by the Trinidad Guardian.",
+    body:"OTC is the largest offshore energy gathering in the world, and in 2024 Trinidad & Tobago had a national pavilion there for the first time — powered by the National Energy Corporation and coordinated by Ramps. I conceived, directed and executed the PR, marketing and global content strategy across three consecutive years, based in Houston for each.",
+    points:["Reached <strong>80,000+ international delegates</strong> across three years",
+            "One of only 14 international country pavilions at the conference",
+            "Positioned a national delegation of energy service companies to Gulf of Mexico, Caribbean and Americas decision-makers",
+            "Ran real-time media coverage and content production on the floor, feeding business development"] },
+
+  { id:"noble", city:"Georgetown", country:"Guyana", lat:6.80, lon:-58.16,
+    dx:12, anchor:"start", ly:14,
+    year:"2024 – present", kick:"Noble Corporation · El Dorado Offshore · MATPAL",
+    title:"Noble Marine Cadet Scholarship",
+    img:"noble.jpg", cap:"Recruitment creative for the inaugural Noble Marine Cadet Scholarship intake.",
+    body:"Guyana is the most active location in the world for Noble's drillships, and the country needs certified marine officers faster than it can train them. The scholarship — a partnership between Noble, El Dorado Offshore and MATPAL Marine Institute — is a full four-year ride: eighteen months in a classroom, eighteen months offshore, and a job at the end. My role was the communications and recruitment marketing that fills it.",
+    points:["Programme scaled from <strong>6 cadets to 20 per year</strong>, valued at over US$100,000 annually",
+            "Recruitment outreach taken into technical institutes and regions across Guyana",
+            "Positioned a local-content commitment in one of the fastest-growing energy economies in the world",
+            "Supported by earned coverage including the first Guyanese offshore driller feature"] },
+
+  { id:"mawi", city:"Port of Spain", country:"Trinidad & Tobago \u00b7 with Valier Technologies", lat:10.65, lon:-61.51,
+    sharesPin:"cubby",
+    year:"2024 \u2013 2025", kick:"Finalist \u00b7 Breakbulk Awards 2025",
+    title:"MAWI",
+    img:"mawi.jpg", cap:"MAWI named a 2025 Breakbulk Awards finalist \u2014 as covered by OilNOW.",
+    body:"Customs brokerage is the least glamorous part of freight and the most expensive to get wrong. MAWI reads shipping documents with OCR and language models, classifies them, and flags what needs a permit before it becomes a delay \u2014 cutting clearance from hours to minutes. Marketing an unglamorous back-office product means selling the cost of the problem, not the cleverness of the solution. Then Breakbulk shortlisted it, and the story became a much bigger one about where innovation is allowed to come from.",
+    points:["<strong>20,000+ sign-ups in two months</strong> at launch, with 30\u201340% conversion and 50\u201370% activation across two markets",
+            "Finalist, <strong>Best Logistics Strategy for an Energy Project</strong>, Breakbulk Awards 2025 \u2014 the first Caribbean-built technology to reach that level",
+            "Shortlisted in a field historically dominated by ExxonMobil, GE and Siemens",
+            "Positioned as the world\u2019s first AI-driven customs brokerage platform, now used by energy operators in Trinidad and Guyana"] },
+
+  { id:"forbes", city:"New York", country:"Forbes Communications Council", lat:40.71, lon:-74.01,
+    dx:12, anchor:"start",
+    year:"October 2025", kick:"Forbes · byline",
+    title:"Freight Without Friction",
+    img:"forbes.jpg", cap:"Published in Forbes, 30 October 2025.",
+    body:"A byline for Forbes on how AI is changing the language of global trade — argued from inside the industry rather than about it. The thesis: technology is the engine of the shift, but communication is the steering wheel, and the Caribbean is a case study in how emerging markets can lead rather than follow.",
+    points:["Published as a Forbes Communications Council member, October 2025",
+            "Established subject-matter authority at the intersection of AI, logistics and trade",
+            "Part of a thought-leadership programme supporting enterprise business development",
+            "<a href='https://www.forbes.com/councils/forbescommunicationscouncil/2025/10/30/freight-without-friction-how-ai-is-reengineering-the-language-of-global-trade/'>Read the article</a>"] },
+
+  { id:"usine", city:"Paris", country:"France", lat:48.86, lon:2.35,
+    dx:12, anchor:"start", ly:12,
+    year:"2025", kick:"L'Usine Nouvelle · French industrial press",
+    title:"Guyana: la naissance fulgurante d'un État pétrolier",
+    img:"usine.jpg", cap:"L’Usine Nouvelle, 13 August 2025 — tier-one placement in the French industrial press.",
+    body:"A tier-one placement in France's leading industrial title, positioning Guyana's emergence as an oil state for a European industrial and investor readership. It's one of forty-five tier-one placements from a programme built to move share of voice in markets where nobody had heard of us.",
+    points:["Part of a programme that grew earned-media presence by <strong>97%</strong>",
+            "45 tier-one placements across the US, GB, Caribbean, South America, Asia, Africa and LATAM",
+            "40–70% growth in share of voice across priority markets",
+            "Placement secured in a non-English market and press culture"] },
+
+  { id:"rbl", city:"Port of Spain", country:"Trinidad & Tobago \u00b7 Republic Bank", lat:10.65, lon:-61.51,
+    sharesPin:"cubby",
+    year:"Sept \u2013 Dec 2021", kick:"Double Silver ADDY \u00b7 Social & Interactive",
+    title:"Take Your Shot to Win",
+    img:"republic.jpg", cap:"Countdown creative from the twelve-week Take Your Shot to Win promotion.",
+    body:"Republic Bank's vaccination lottery ran for twelve weeks in late 2021, at the point where Trinidad & Tobago's problem was no longer vaccine supply but vaccine hesitancy. The mechanic did the persuading: weekly prizes for anyone vaccinated, and two grand prizes released only if the country itself crossed a 70% fully-vaccinated rate. It turned an individual decision into a collective target, and made every entrant an advocate for the next one. Produced agency-side at Caribbean Ideas Synapse.",
+    points:["<strong>Double Silver ADDY, 2022</strong> \u2014 Social Media &amp; Interactive Campaigns",
+            "Reached <strong>25M+ users</strong>; 35\u201355% lift in engagement and 10\u201320% improvement in video completion",
+            "12 weekly prizes plus grand prizes tied to a national 70% vaccination threshold",
+            "Rolled out across Republic Bank's regional markets including Guyana and St Kitts &amp; Nevis"] },
+
+  { id:"global", city:"London", country:"United Kingdom · & 12 markets", lat:51.51, lon:-0.13,
+    dx:-12, anchor:"end", ly:-6,
+    year:"2020 – 2022", kick:"Diageo · Coca-Cola · Unilever · P&G · UNICEF",
+    title:"Global brand campaigns",
+    img:"global.jpg", cap:"Twelve international markets, one hub — multi-market campaign delivery, 2020–2022.",
+    body:"Two years at Caribbean Ideas Synapse, orchestrating a creative and account pod delivering multi-market campaigns for global partners — including London-headquartered Diageo and Unilever. This is where I learned to build one idea that survives twelve different markets.",
+    points:["Campaigns executed across <strong>12 international markets</strong>",
+            "25–45% growth in social engagement; 15–30% audience growth in campaign periods",
+            "20–30% improvement in cross-market delivery efficiency",
+            "Built brand-voice guidelines and platform strategies across the client portfolio"] }
+];
+
+/* ---- land ---- */
+let d = "";
+for (let i = 0; i < GRID.length; i++) {
+  for (let j = 0; j < 72; j++) {
+    if (GRID[i][j] === "1") {
+      const cx = (j / 72) * 1000 + 1000 / 144;
+      const cy = (i / 36) * 500 + 500 / 72 - 15;
+      if (cy > -5 && cy < H + 5) d += `<circle class="dot" cx="${cx.toFixed(1)}" cy="${cy.toFixed(1)}" r="2"/>`;
+    }
+  }
+}
+document.getElementById("land").innerHTML = d;
+
+/* ---- route arcs from hub ---- */
+let a = "";
+PORTS.forEach(p => {
+  if (p.hub || p.sharesPin) return;
+  const x1 = x(HUB.lon), y1 = y(HUB.lat);
+  const x2 = x(p.lon), y2 = y(p.lat);
+  const mx = (x1 + x2) / 2, my = (y1 + y2) / 2;
+  const dx = x2 - x1, dy = y2 - y1;
+  a += `<path class="arc" id="arc-${p.id}" d="M${x1.toFixed(1)},${y1.toFixed(1)} Q${(mx - dy * .17).toFixed(1)},${(my + dx * .17).toFixed(1)} ${x2.toFixed(1)},${y2.toFixed(1)}"/>`;
+});
+document.getElementById("arcs").innerHTML = a;
+
+/* ---- pins ---- */
+let s = "";
+PORTS.filter(p => !p.sharesPin).forEach(p => {
+  const px = x(p.lon), py = y(p.lat);
+  s += `<g class="pin ${p.hub ? "hub" : ""}" id="pin-${p.id}" tabindex="0" role="button" aria-label="${p.title}, ${p.city}">
+      <circle class="pin-halo" cx="${px}" cy="${py}" r="7"/>
+      <circle class="pin-ring" cx="${px}" cy="${py}" r="6.5"/>
+      <circle class="pin-core" cx="${px}" cy="${py}" r="3.6"/>
+      <circle class="pin-hit" cx="${px}" cy="${py}" r="20"/>
+      <text class="pin-label" x="${px + (p.dx || 11)}" y="${py + (p.ly !== undefined ? p.ly : 4)}" text-anchor="${p.anchor}">${p.city.toUpperCase()}</text>
+    </g>`;
+});
+document.getElementById("pins").innerHTML = s;
+
+/* ---- case studies ---- */
+document.getElementById("cases").innerHTML = PORTS.map(p => `
+  <article class="case" id="case-${p.id}">
+    <div>
+      <p class="case-loc">
+        <span class="city">${p.city}</span><span>${p.country}</span>
+        <span>${fmt(p.lat, p.lon)}</span><span>${p.year}</span>
+      </p>
+      <h3>${p.title}</h3>
+      <p class="kick">${p.kick}</p>
+      <p>${p.body}</p>
+      <ul>${p.points.map(t => `<li>${t}</li>`).join("")}</ul>
+    </div>
+    <figure class="plate">
+      ${p.img
+        ? `<img src="${p.img}" alt="${p.title}" loading="lazy">`
+        : `<div class="empty"><span>${p.city}</span><span>image slot</span></div>`}
+      <figcaption class="cap">${p.img ? p.title : p.cap}</figcaption>
+    </figure>
+  </article>`).join("");
+
+/* ---- interaction ---- */
+const rL = document.getElementById("r-left"), rR = document.getElementById("r-right");
+const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+function lightUp(p, on) {
+  const key = p.sharesPin || p.id;
+  const arc = document.getElementById("arc-" + key);
+  if (arc) arc.classList.toggle("lit", on);
+  const pin = document.getElementById("pin-" + key);
+  if (pin) pin.classList.toggle("on", on);
+  const row = document.getElementById("ix-" + p.id);
+  if (row) row.classList.toggle("on", on);
+  if (on) {
+    rL.innerHTML = `<b>${p.city}</b> — ${p.title}`;
+    rR.textContent = fmt(p.lat, p.lon) + "  ·  " + p.year;
+  } else {
+    rL.textContent = "Select a port to open the case study";
+    rR.textContent = "";
+  }
+}
+function openCase(p) {
+  const el = document.getElementById("case-" + p.id);
+  el.scrollIntoView({ behavior: reduce ? "auto" : "smooth", block: "center" });
+  el.classList.add("flash");
+  setTimeout(() => el.classList.remove("flash"), 1700);
+}
+PORTS.forEach(p => {
+  const g = document.getElementById("pin-" + p.id);
+  if (!g) return;
+  g.addEventListener("mouseenter", () => lightUp(p, true));
+  g.addEventListener("mouseleave", () => lightUp(p, false));
+  g.addEventListener("focus", () => lightUp(p, true));
+  g.addEventListener("blur", () => lightUp(p, false));
+  g.addEventListener("click", () => openCase(p));
+  g.addEventListener("keydown", e => {
+    if (e.key === "Enter" || e.key === " ") { e.preventDefault(); openCase(p); }
+  });
+});
+/* ---- port index ---- */
+document.getElementById("index").innerHTML = PORTS.map(p => `
+  <button class="ix" id="ix-${p.id}" type="button">
+    <span class="ix-port">${p.city}</span>
+    <span class="ix-name">${p.title}</span>
+    <span class="ix-yr">${p.year}</span>
+  </button>`).join("");
+
+PORTS.forEach(p => {
+  const row = document.getElementById("ix-" + p.id);
+  row.addEventListener("mouseenter", () => lightUp(p, true));
+  row.addEventListener("mouseleave", () => lightUp(p, false));
+  row.addEventListener("focus", () => lightUp(p, true));
+  row.addEventListener("blur", () => lightUp(p, false));
+  row.addEventListener("click", () => openCase(p));
+});
+
+document.getElementById("count").textContent = new Set(PORTS.map(p => p.city)).size;
+document.getElementById("ccount").textContent = PORTS.length;
+</script>
+</body>
+</html>
