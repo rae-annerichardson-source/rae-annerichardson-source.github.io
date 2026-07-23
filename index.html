@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Rae-Anne Richardson — Senior Marketing Strategist</title>
+<title>Rae-Anne Richardson | Senior Marketing Strategist</title>
 <meta name="description" content="Award-winning senior marketing strategist. Go-to-market, brand and communications for companies that move things across borders.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -111,6 +111,7 @@
   .ix:hover .ix-port,.ix.on .ix-port{color:var(--navy)}
   .ix .ix-name{flex:1;font-family:var(--sans);font-size:.84rem;letter-spacing:0}
   .ix .ix-yr{flex:0 0 auto;color:var(--ink-3);font-size:.66rem}
+  .hint-sm{display:none}
   .hint{font-family:var(--mono);font-size:.66rem;letter-spacing:.13em;text-transform:uppercase;color:var(--ink-3);margin:12px 0 0}
 
   /* ---------- figures ---------- */
@@ -219,6 +220,48 @@
     .pin-label{font-size:14px}
     body{font-size:16px}
   }
+  @media (max-width:640px){
+    .wrap{padding:0 18px}
+    body{font-size:16px;line-height:1.68}
+
+    /* map: scale markers and labels up so they survive being squeezed */
+    .pin-core{r:10}
+    .pin-ring{r:15}
+    .pin-halo{r:16}
+    .pin-hit{r:26}
+    .pin:hover .pin-core,.pin:focus-visible .pin-core,.pin.on .pin-core{r:13}
+    .pin-label{font-size:34px;letter-spacing:.05em}
+    .dot{r:3}
+    .arc{stroke-width:2;stroke-dasharray:5 9}
+
+    .atlas-bar,.atlas-read{padding:11px 14px;font-size:.66rem;line-height:1.7}
+    .index{padding:4px 14px 10px;grid-template-columns:1fr}
+    .ix{flex-wrap:wrap;gap:2px 10px;padding:13px 2px}
+    .ix .ix-port{flex:0 0 100%;font-size:.62rem}
+    .ix .ix-name{flex:1 1 auto;font-size:.9rem}
+
+    .hint-lg{display:none}
+    .hint-sm{display:inline}
+    .figs{gap:26px 20px;margin-top:52px;padding:30px 0}
+    .fig .n{font-size:1.75rem}
+
+    .sec{padding:52px 0 0}
+    .sec > .sub{font-size:1.22rem;margin-bottom:28px}
+    .case{padding:28px 0;gap:20px}
+    .case h3{font-size:1.42rem}
+    .case p,.case li{max-width:none}
+    .plate{max-width:100%}
+
+    .end{margin-top:64px;padding:40px 0 24px}
+    .btns{gap:9px}
+    .btn{flex:1 1 100%;text-align:center;padding:15px 18px}
+    .foot{padding:26px 0 40px}
+  }
+  @media (max-width:380px){
+    .wrap{padding:0 14px}
+    .pin-label{font-size:30px}
+    .fig .n{font-size:1.6rem}
+  }
   @media (prefers-reduced-motion:reduce){
     html{scroll-behavior:auto}
     *{transition:none!important;animation:none!important}
@@ -231,7 +274,7 @@
   <header class="mast">
     <p class="eyebrow">Senior Marketing Strategist</p>
     <h1>Rae-Anne Richardson</h1>
-    <p class="lede">Award-winning integrated marketing, communications and go-to-market strategy across international markets. I turn insight-led planning into work that moves commercial numbers — for consumer giants, and for the companies moving cargo across borders.</p>
+    <p class="lede">Award-winning integrated marketing, communications and go-to-market strategy across international markets. I turn insight-led planning into work that moves commercial numbers, for consumer giants and for the companies moving cargo across borders.</p>
     <ul class="meta">
       <li><a href="mailto:rae-annerichardson@hotmail.com">rae-annerichardson@hotmail.com</a></li>
       <li>+1 868 473 4629</li>
@@ -255,7 +298,7 @@
     </div>
     <div class="index" id="index"></div>
   </section>
-  <p class="hint">Tap a marker, or scroll for the full case studies</p>
+  <p class="hint"><span class="hint-lg">Tap a marker, or scroll for the full case studies</span><span class="hint-sm">Tap a port in the list below, or scroll for the full case studies</span></p>
 
   <div class="figs">
     <div class="fig"><span class="n">US$9M</span><span class="l">First-year revenue<br>new product launch</span></div>
@@ -276,20 +319,20 @@
     <p class="sub">How I work.</p>
     <div class="cols">
       <div>
-        <p>I came up through advertising — copywriting, creative pods, brand campaigns for Diageo, Coca-Cola, Unilever and UNICEF — and then took that craft into energy and logistics, where the buyer is technical, the sales cycle is long, and the audience sits across a dozen jurisdictions. The combination is the point. A campaign has to do more than look good: it has to open a market, shorten a pipeline, or make a sales team faster.</p>
-        <p>In practice that means running integrated programmes end to end — go-to-market strategy, brand positioning, PR, performance marketing and sales enablement — with a measurement layer attached from the start. I currently lead a cross-functional team of five specialists across six international offices, govern a US$250K annual media budget, and write on AI and global trade for Forbes.</p>
+        <p>I came up through advertising, writing copy and running creative pods on brand campaigns for Diageo, Coca-Cola, Unilever and UNICEF, then took that craft into energy and logistics, where the buyer is technical, the sales cycle is long, and the audience sits across a dozen jurisdictions. The combination is the point. A campaign has to do more than look good: it has to open a market, shorten a pipeline, or make a sales team faster.</p>
+        <p>In practice that means running integrated programmes end to end, covering go-to-market strategy, brand positioning, PR, performance marketing and sales enablement, with a measurement layer attached from the start. I currently lead a cross-functional team of five specialists across six international offices, govern a US$250K annual media budget, and write on AI and global trade for Forbes.</p>
         <p>Roughly five years agency-side and five in-house, which means I can write the line and defend the media plan. Three advertising awards came from the creative work; US$9M in first-year revenue and a US$300M pipeline came from the commercial side. I don't think those are separate skills.</p>
         <div class="tags">
-          <span class="tag">Go-to-market strategy</span><span class="tag">Brand positioning</span><span class="tag">Public relations</span><span class="tag">Media strategy</span><span class="tag">SEO / SEM / CRO</span><span class="tag">Paid media</span><span class="tag">Sales enablement</span><span class="tag">Marketing analytics</span><span class="tag">AI-driven marketing</span><span class="tag">Executive stakeholder management</span>
+          <span class="tag">Go-to-market strategy</span><span class="tag">Brand positioning</span><span class="tag">Public relations</span><span class="tag">Crisis &amp; regulatory communications</span><span class="tag">Media strategy</span><span class="tag">SEO / SEM / CRO</span><span class="tag">Paid media</span><span class="tag">Sales enablement</span><span class="tag">Marketing analytics</span><span class="tag">AI-driven marketing</span><span class="tag">Executive stakeholder management</span>
         </div>
       </div>
       <div>
         <h4>Recognition</h4>
         <ul class="list">
-          <li>Silver ADDY, American Advertising Awards — 2026</li>
-          <li>Double Silver ADDY, American Advertising Awards — 2022</li>
-          <li>Trinidad &amp; Tobago Advertising Award — 2020</li>
-          <li>Forbes Communications Council — member</li>
+          <li>Silver ADDY, American Advertising Awards, 2026</li>
+          <li>Double Silver ADDY, American Advertising Awards, 2022</li>
+          <li>Trinidad &amp; Tobago Advertising Award, 2020</li>
+          <li>Forbes Communications Council member</li>
         </ul>
       </div>
     </div>
@@ -318,7 +361,7 @@
 
   <section class="end">
     <h2>Open to senior marketing roles in the UK.</h2>
-    <p>I'm relocating and would need Skilled Worker sponsorship — happy to talk through timelines. If you're hiring for brand, communications or growth, I'd like to hear about it.</p>
+    <p>I'm relocating and would need Skilled Worker sponsorship, and I'm happy to talk through timelines. If you're hiring for brand, communications or growth, I'd like to hear about it.</p>
     <div class="btns">
       <a class="btn" href="mailto:rae-annerichardson@hotmail.com">Email me</a>
       <a class="btn wa" href="https://wa.me/447592987763" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2Zm0 18.15h-.01a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.2 8.2 0 0 1-1.26-4.38c0-4.54 3.7-8.23 8.25-8.23a8.23 8.23 0 0 1 0 16.47Zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.24-.64.8-.78.97-.15.16-.29.18-.54.06-.25-.13-1.05-.39-2-1.23-.74-.66-1.24-1.47-1.38-1.72-.15-.25-.02-.38.11-.5.11-.11.25-.29.37-.44.13-.15.17-.25.25-.42.09-.16.04-.31-.02-.43-.06-.13-.56-1.35-.77-1.84-.2-.49-.4-.42-.55-.43h-.47c-.16 0-.43.06-.65.31-.23.25-.86.84-.86 2.05s.88 2.38 1 2.54c.13.17 1.74 2.66 4.22 3.73.59.25 1.05.4 1.41.52.59.19 1.13.16 1.56.1.47-.07 1.47-.6 1.68-1.18.2-.58.2-1.08.14-1.18-.06-.11-.22-.17-.47-.29Z"/></svg>WhatsApp me</a>
@@ -390,9 +433,9 @@ const PORTS = [
     year:"2025 – 2026", kick:"Silver ADDY · Specialty Advertising Campaign",
     title:"CUBBY Cargo",
     img:"cubby.jpg", cap:"Cubby, the campaign mascot for the Caribbean’s first AI-enabled freight tool.",
-    body:"CUBBY — short for Container Unit Booking Buddy — is the Caribbean's first AI-enabled freight tool, built in Trinidad and run through WhatsApp: quote, book and track a container from China, India, the US or Brazil in about three minutes. My job was to make a piece of regional logistics infrastructure feel like something a small importer would actually want to use. We built a purple octopus and gave the category a mascot it had never had.",
+    body:"CUBBY, short for Container Unit Booking Buddy, is the Caribbean's first AI-enabled freight tool, built in Trinidad and run through WhatsApp: quote, book and track a container from China, India, the US or Brazil in about three minutes. My job was to make a piece of regional logistics infrastructure feel like something a small importer would actually want to use. We built a purple octopus and gave the category a mascot it had never had.",
     points:["Drove <strong>US$9M in first-year revenue</strong> through product campaigns across four markets",
-            "<strong>Silver ADDY, 2026</strong> — Ramps' first year entering, and the only non-agency winner that year",
+            "<strong>Silver ADDY, 2026</strong> in Ramps' first year entering, and the only non-agency winner that year",
             "Conceived and executed entirely in-house: branding, concept, booth design, social and PR",
             "Positioned an enterprise freight platform to SMEs, entrepreneurs and industrial importers",
             "Proved an in-house team could compete with the region's top agencies"] },
@@ -402,18 +445,29 @@ const PORTS = [
     year:"3 consecutive years", kick:"Offshore Technology Conference · NRG Park",
     title:"Trinidad & Tobago National Pavilion",
     img:"otc.jpg", cap:"The T&amp;T Energy Pavilion at OTC Houston, as covered by the Trinidad Guardian.",
-    body:"OTC is the largest offshore energy gathering in the world, and in 2024 Trinidad & Tobago had a national pavilion there for the first time — powered by the National Energy Corporation and coordinated by Ramps. I conceived, directed and executed the PR, marketing and global content strategy across three consecutive years, based in Houston for each.",
+    body:"OTC is the largest offshore energy gathering in the world, and in 2024 Trinidad & Tobago had a national pavilion there for the first time, powered by the National Energy Corporation and coordinated by Ramps. I conceived, directed and executed the PR, marketing and global content strategy across three consecutive years, based in Houston for each.",
     points:["Reached <strong>80,000+ international delegates</strong> across three years",
             "One of only 14 international country pavilions at the conference",
             "Positioned a national delegation of energy service companies to Gulf of Mexico, Caribbean and Americas decision-makers",
             "Ran real-time media coverage and content production on the floor, feeding business development"] },
+
+  { id:"enps", city:"Port of Spain", country:"Trinidad & Tobago \u00b7 Ramps Logistics Group", lat:10.65, lon:-61.51,
+    sharesPin:"cubby",
+    year:"14-month programme", kick:"Employee NPS \u2212\u200953 \u2192 +43",
+    title:"Rebuilding belief from the inside",
+    img:"enps.jpg", cap:"How eNPS works, and where the score moved over fourteen months.",
+    body:"The group had come through a bruising period in one of its growth markets \u2014 regulatory proceedings played out in public, and clients were being advised against working with us while it ran. The company was cleared in full. Internally, the damage outlasted the headlines: employee net promoter score sat at \u221253. A company cannot sell a story its own people no longer believe, so I built and rolled out a digital internal communications platform across the group\u2019s offices, treating colleagues as an audience with their own insight, channels and measurement rather than as a distribution list.",
+    points:["Employee NPS moved from <strong>\u221253 to +43 in fourteen months</strong> \u2014 a 96-point swing",
+            "Designed and launched a digital internal-communications platform across the group",
+            "Delivered alongside crisis and regulatory communications through the proceedings themselves",
+            "Applied external campaign discipline \u2014 audience insight, cadence, measurement \u2014 to an internal audience"] },
 
   { id:"noble", city:"Georgetown", country:"Guyana", lat:6.80, lon:-58.16,
     dx:12, anchor:"start", ly:14,
     year:"2024 – present", kick:"Noble Corporation · El Dorado Offshore · MATPAL",
     title:"Noble Marine Cadet Scholarship",
     img:"noble.jpg", cap:"Recruitment creative for the inaugural Noble Marine Cadet Scholarship intake.",
-    body:"Guyana is the most active location in the world for Noble's drillships, and the country needs certified marine officers faster than it can train them. The scholarship — a partnership between Noble, El Dorado Offshore and MATPAL Marine Institute — is a full four-year ride: eighteen months in a classroom, eighteen months offshore, and a job at the end. My role was the communications and recruitment marketing that fills it.",
+    body:"Guyana is the most active location in the world for Noble's drillships, and the country needs certified marine officers faster than it can train them. The scholarship , a partnership between Noble, El Dorado Offshore and MATPAL Marine Institute, is a full four-year ride: eighteen months in a classroom, eighteen months offshore, and a job at the end. My role was the communications and recruitment marketing that fills it.",
     points:["Programme scaled from <strong>6 cadets to 20 per year</strong>, valued at over US$100,000 annually",
             "Recruitment outreach taken into technical institutes and regions across Guyana",
             "Positioned a local-content commitment in one of the fastest-growing energy economies in the world",
@@ -430,23 +484,12 @@ const PORTS = [
             "Shortlisted in a field historically dominated by ExxonMobil, GE and Siemens",
             "Positioned as the world\u2019s first AI-driven customs brokerage platform, now used by energy operators in Trinidad and Guyana"] },
 
-  { id:"enps", city:"Port of Spain", country:"Trinidad & Tobago \u00b7 Ramps Logistics Group", lat:10.65, lon:-61.51,
-    sharesPin:"cubby",
-    year:"14-month programme", kick:"Employee NPS \u2212\u200953 \u2192 +43",
-    title:"Rebuilding belief from the inside",
-    img:"enps.jpg", cap:"A 96-point swing in employee net promoter score over fourteen months.",
-    body:"A company cannot sell a story its own people do not believe. Employee net promoter score sat at \u221253 \u2014 the kind of number that surfaces first in retention and service quality, and eventually in the brand itself. I built and rolled out a digital internal communications platform across the group\u2019s offices, treating colleagues as an audience with their own insight, channels and measurement rather than as a distribution list.",
-    points:["Employee NPS moved from <strong>\u221253 to +43 in fourteen months</strong> \u2014 a 96-point swing",
-            "Designed and launched a digital internal-communications platform across the group",
-            "Gave a multi-country, multi-office workforce one consistent channel and voice",
-            "Applied external campaign discipline \u2014 audience insight, cadence, measurement \u2014 to an internal audience"] },
-
   { id:"forbes", city:"New York", country:"Forbes Communications Council", lat:40.71, lon:-74.01,
     dx:12, anchor:"start",
     year:"October 2025", kick:"Forbes · byline",
     title:"Freight Without Friction",
     img:"forbes.jpg", cap:"Published in Forbes, 30 October 2025.",
-    body:"A byline for Forbes on how AI is changing the language of global trade — argued from inside the industry rather than about it. The thesis: technology is the engine of the shift, but communication is the steering wheel, and the Caribbean is a case study in how emerging markets can lead rather than follow.",
+    body:"A byline for Forbes on how AI is changing the language of global trade, argued from inside the industry rather than about it. The thesis: technology is the engine of the shift, but communication is the steering wheel, and the Caribbean is a case study in how emerging markets can lead rather than follow.",
     points:["Published as a Forbes Communications Council member, October 2025",
             "Established subject-matter authority at the intersection of AI, logistics and trade",
             "Part of a thought-leadership programme supporting enterprise business development",
@@ -456,7 +499,7 @@ const PORTS = [
     dx:12, anchor:"start", ly:12,
     year:"2025", kick:"L'Usine Nouvelle · French industrial press",
     title:"Guyana: la naissance fulgurante d'un État pétrolier",
-    img:"usine.jpg", cap:"L’Usine Nouvelle, 13 August 2025 — tier-one placement in the French industrial press.",
+    img:"usine.jpg", cap:"L’Usine Nouvelle, 13 August 2025. Tier-one placement in the French industrial press.",
     body:"A tier-one placement in France's leading industrial title, positioning Guyana's emergence as an oil state for a European industrial and investor readership. It's one of forty-five tier-one placements from a programme built to move share of voice in markets where nobody had heard of us.",
     points:["Part of a programme that grew earned-media presence by <strong>97%</strong>",
             "45 tier-one placements across the US, GB, Caribbean, South America, Asia, Africa and LATAM",
@@ -478,8 +521,8 @@ const PORTS = [
     dx:-12, anchor:"end", ly:-6,
     year:"2020 – 2022", kick:"Diageo · Coca-Cola · Unilever · P&G · UNICEF",
     title:"Global brand campaigns",
-    img:"global.jpg", cap:"Twelve international markets, one hub — multi-market campaign delivery, 2020–2022.",
-    body:"Two years at Caribbean Ideas Synapse, orchestrating a creative and account pod delivering multi-market campaigns for global partners — including London-headquartered Diageo and Unilever. This is where I learned to build one idea that survives twelve different markets.",
+    img:"global.jpg", cap:"Twelve international markets, one hub. Multi-market campaign delivery, 2020–2022.",
+    body:"Two years at Caribbean Ideas Synapse, orchestrating a creative and account pod delivering multi-market campaigns for global partners, including London-headquartered Diageo and Unilever. This is where I learned to build one idea that survives twelve different markets.",
     points:["Campaigns executed across <strong>12 international markets</strong>",
             "25–45% growth in social engagement; 15–30% audience growth in campaign periods",
             "20–30% improvement in cross-market delivery efficiency",
@@ -559,7 +602,7 @@ function lightUp(p, on) {
   const row = document.getElementById("ix-" + p.id);
   if (row) row.classList.toggle("on", on);
   if (on) {
-    rL.innerHTML = `<b>${p.city}</b> — ${p.title}`;
+    rL.innerHTML = `<b>${p.city}</b> \u00b7 ${p.title}`;
     rR.textContent = fmt(p.lat, p.lon) + "  ·  " + p.year;
   } else {
     rL.textContent = "Select a port to open the case study";

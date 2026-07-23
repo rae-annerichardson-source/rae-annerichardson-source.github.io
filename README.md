@@ -1,48 +1,51 @@
 # Rae-Anne Richardson — Portfolio
 
-Single-page interactive portfolio. Eight campaigns plotted on a world map, with full case studies below.
+Single-page interactive portfolio. Nine campaigns plotted on a world map, with full case studies below.
 
-## Files to upload
+## Files (all must sit at the repository root)
 
 | File | Purpose |
 |---|---|
 | `index.html` | The entire site — HTML, CSS and JS in one file |
+| `CV.pdf` | Linked from the Download CV button |
 | `cubby.jpg` | CUBBY Cargo |
 | `otc.jpg` | Trinidad & Tobago National Pavilion |
+| `enps.jpg` | Rebuilding belief from the inside |
 | `noble.jpg` | Noble Marine Cadet Scholarship |
 | `mawi.jpg` | MAWI |
 | `forbes.jpg` | Freight Without Friction |
 | `usine.jpg` | L'Usine Nouvelle |
 | `republic.jpg` | Take Your Shot to Win |
 | `global.jpg` | Global brand campaigns |
-| `CV.pdf` | **You need to add this** — the Download CV button links to it |
 
-All files must sit in the same folder, at the repository root.
+## Publishing
 
-## Publishing on GitHub Pages
+The repository is named `rae-annerichardson-source.github.io`, so GitHub Pages
+serves it at the root: https://rae-annerichardson-source.github.io/
 
-1. Create a new repository (a name like `portfolio` is fine).
-2. Upload every file above to the repository root.
-3. Go to **Settings → Pages**.
-4. Under *Source*, choose **Deploy from a branch**, select `main` and `/ (root)`, then **Save**.
-5. Wait a minute or two. The site appears at `https://<your-username>.github.io/<repository-name>/`
+Settings → Pages → Source: Deploy from a branch → `main` → `/ (root)`.
 
-For a custom domain, add it under Settings → Pages → Custom domain, then point a CNAME
-record at `<your-username>.github.io` with your domain registrar.
+Changes go live a minute or two after pushing. Hard-refresh (Ctrl/Cmd+Shift+R)
+to get past browser caching, especially for images and the PDF.
 
 ## Editing content
 
-Everything in the case studies is driven by the `PORTS` array inside the `<script>` block in `index.html`:
+Case studies are driven by the `PORTS` array inside the `<script>` block:
 
 - `title`, `kick`, `year` — headings and labels
 - `body` — the paragraph
-- `points` — the bullet list (`<strong>` and links are allowed)
-- `img` / `cap` — image filename and its caption
+- `points` — the bullet list (`<strong>` and links allowed)
+- `img` / `cap` — image filename and caption
 - `lat` / `lon` — map position; leave alone unless the location changes
+- `sharesPin` — set when a campaign shares another entry's map marker
 
-Client and press names live in the `#clients` section of the HTML, not in the script.
+Order in the array sets the order on the page and in the port index.
 
-## Swapping an image
+Client and press names live in the `#clients` section of the HTML, not the script.
 
-Put the new file in this folder (landscape, roughly 4:3, under ~400KB),
-then change `img:"oldfile.jpg"` to `img:"newfile.jpg"` on the matching entry.
+## Notes
+
+- Mobile breakpoints at 900px, 760px, 640px and 380px. On phones the map is a
+  visual anchor and the port index below it is the navigation, because several
+  ports sit only a few pixels apart at that width.
+- Swapping an image: keep the same filename, or update `img:` on the entry.
